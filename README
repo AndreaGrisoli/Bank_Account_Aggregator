@@ -15,6 +15,9 @@ L'idea è di evolvere nel tempo verso una vera e propria **app di aggregazione f
 - 🏦 Aggregare in futuro dati da più conti e istituti finanziari
 
 > Questo è il primo passo — un MVP da terminale — prima di costruire un'interfaccia grafica completa.
+
+---
+
 ## ✅ Requisiti
 
 - Python 3.12+
