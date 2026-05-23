@@ -1,0 +1,132 @@
+# 📊 Trade Republic Dashboard
+
+Script Python per leggere e visualizzare nel terminale i dati del tuo conto Trade Republic: acquisti ETF, depositi, interessi, performance e patrimonio totale.
+
+---
+## 🎯 Scopo del progetto
+
+Questo progetto nasce con l'obiettivo di costruire uno strumento personale per il **monitoraggio della finanza personale**, partendo da un semplice dashboard a terminale per leggere i dati di Trade Republic.
+
+L'idea è di evolvere nel tempo verso una vera e propria **app di aggregazione finanziaria personale**, che permetta di:
+
+- 📊 Monitorare investimenti e piani di accumulo (PAC)
+- 💰 Tracciare depositi, saldo e interessi maturati
+- 📈 Visualizzare la performance del portafoglio in tempo reale
+- 🏦 Aggregare in futuro dati da più conti e istituti finanziari
+
+> Questo è il primo passo — un MVP da terminale — prima di costruire un'interfaccia grafica completa.
+## ✅ Requisiti
+
+- Python 3.12+
+- Un account Trade Republic attivo
+- pip
+
+---
+
+## 📦 Installazione
+
+### 1. Clona il repository
+
+```bash
+git clone https://github.com/tuousername/trade-republic-dashboard.git
+cd trade-republic-dashboard
+```
+
+### 2. Installa le dipendenze
+
+```bash
+pip install pytr yfinance colorama python-dotenv
+```
+
+### 3. Installa il browser per il login
+
+```bash
+playwright install chromium
+```
+
+---
+
+## ⚙️ Configurazione
+
+### Crea il file `.env`
+
+Crea un file `.env` nella cartella del progetto con le tue credenziali Trade Republic:
+
+```
+TR_PHONE=+391234567890
+TR_PIN=1234
+```
+
+> ⚠️ Non caricare mai questo file su GitHub. È già incluso nel `.gitignore`.
+
+### Crea il file `config.py`
+
+Crea un file `config.py` con i percorsi del tuo sistema:
+
+```python
+# config.py — NON caricare su GitHub!
+PYTR_PATH = r"C:\Users\TUONOME\AppData\Local\Python\pythoncore-3.14-64\Scripts\pytr.exe"
+JSON_FILE = r"C:\Users\TUONOME\.pytr\docs\all_events.json"
+COOKIE_FILE = r"C:\Users\TUONOME\.pytr\cookies.+39XXXXXXXXXX.txt"
+DOCS_PATH = r"C:\Users\TUONOME\.pytr\docs"
+```
+
+> ⚠️ Sostituisci `TUONOME` con il tuo nome utente Windows e il numero di telefono nel nome del cookie file.
+
+---
+
+## 🚀 Utilizzo
+
+```bash
+python tr_dashboard.py
+```
+
+All'avvio lo script:
+1. Cancella la sessione precedente
+2. Chiede il codice 2FA tramite notifica sull'app TR o SMS
+3. Scarica tutti i dati aggiornati
+4. Mostra il dashboard con acquisti ETF, depositi, interessi, performance e patrimonio
+
+---
+
+## 📁 Struttura del progetto
+
+```
+trade-republic-dashboard/
+├── tr_dashboard.py     # Script principale
+├── config.py           # Percorsi locali (NON su GitHub)
+├── .env                # Credenziali (NON su GitHub)
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🔒 Sicurezza
+
+- Le credenziali (numero e PIN) sono salvate solo nel file `.env` in locale
+- La connessione avviene direttamente con Trade Republic tramite WebSocket cifrato
+- Nessun dato viene inviato a server terzi
+- Il codice 2FA viene richiesto ad ogni avvio per garantire la sicurezza
+
+---
+
+## ⚠️ Disclaimer
+
+Questo progetto utilizza le API private non ufficiali di Trade Republic. Non è affiliato con Trade Republic Bank GmbH. I prezzi degli ETF sono forniti da Yahoo Finance con un ritardo di circa 15 minuti.
+
+---
+
+## Licenza e Diritti d'Autore (Copyright)
+
+Questo progetto è pubblicato esclusivamente a scopo informativo e di studio. 
+Tutti i diritti sono riservati (All Rights Reserved).
+
+È consentito:
+* Visualizzare il codice sorgente.
+* Scaricare o clonare il progetto per uso strettamente personale e privato.
+
+NON è consentito:
+* Modificare il codice per creare opere derivate pubbliche.
+* Ridistribuire il codice originale o modificato.
+* Utilizzare il codice (o parti di esso) per scopi commerciali.
